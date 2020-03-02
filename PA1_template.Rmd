@@ -37,6 +37,7 @@ plot(meanSteps,main = "Daily average number of steps",type = "l",col="blue",
 # The 5-minute interval that, on average, contains the maximum number of steps
 ```{r}
 maxInterval <- data$interval[grep(max(meanSteps),meanSteps)]
+maxInterval
 ```
 
 # Code to describe and show a strategy for imputing missing data

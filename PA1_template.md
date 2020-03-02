@@ -92,6 +92,11 @@ plot(meanSteps,main = "Daily average number of steps",type = "l",col="blue",
 
 ```r
 maxInterval <- data$interval[grep(max(meanSteps),meanSteps)]
+maxInterval
+```
+
+```
+## [1] 835
 ```
 
 # Code to describe and show a strategy for imputing missing data
