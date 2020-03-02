@@ -96,28 +96,10 @@ maxInterval <- data$interval[grep(max(meanSteps),meanSteps)]
 
 # Code to describe and show a strategy for imputing missing data
 
+We will create a function to fill the NA values with the mean value for each 5 minute interval
+
 ```r
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 meanInt <- function(x){replace(x, is.na(x), mean(x, na.rm = TRUE))}
 newData <- data %>% 
   group_by(interval) %>%

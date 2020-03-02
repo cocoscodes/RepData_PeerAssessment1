@@ -285,24 +285,10 @@ plot(meanSteps,main = &quot;Daily average number of steps&quot;,type = &quot;l&q
 
 <h1>Code to describe and show a strategy for imputing missing data</h1>
 
+<p>We will create a function to fill the NA values with the mean value for each 5 minute interval</p>
+
 <pre><code class="r">library(dplyr)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="r">meanInt &lt;- function(x){replace(x, is.na(x), mean(x, na.rm = TRUE))}
+meanInt &lt;- function(x){replace(x, is.na(x), mean(x, na.rm = TRUE))}
 newData &lt;- data %&gt;% 
   group_by(interval) %&gt;%
   mutate(steps = meanInt(steps))
